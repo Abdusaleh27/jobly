@@ -1,0 +1,28 @@
+a {
+  text-decoration: none;
+  color: black;
+}
+.job-card {
+  border: 1px solid goldenrod;
+  text-align: left;
+  transition: 600ms;
+}
+.job-card:hover {
+  border: 1px solid brown;
+  cursor: pointer;
+  background-color: rgba(35, 17, 17, 0.756);
+  color: white;
+  transition: 700ms;
+}
+
+.company-name {
+  font-family: "Lugrasimo", cursive;
+  color: cornflowerblue;
+  font-size: smaller;
+  padding: 5px 0 0 10px;
+}
+.company-description {
+  font-family: "EB Garamond", serif;
+  font-size: small;
+  padding: 0 0 0 10px;
+}

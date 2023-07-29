@@ -1,0 +1,25 @@
+a {
+  text-decoration: none;
+  color: black;
+}
+.j-card {
+  border: 3px solid rgb(0, 0, 0);
+  text-align: left;
+}
+.job-title {
+  font-family: "EB Garamond", serif;
+  color: rgb(163, 27, 27);
+  font-size: large;
+  padding: 5px 0 15px 10px;
+}
+.job-description {
+  font-family: "EB Garamond", serif;
+  font-size: small;
+  padding: 0 0 0 10px;
+  margin-top: -15px;
+}
+.apply-parent {
+  width: 130px;
+  margin: auto;
+  margin-bottom: 15px;
+}

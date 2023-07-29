@@ -1,0 +1,12 @@
+.form-box {
+  
+  
+  margin-top: 50px;
+  border: solid 2px goldenrod;
+  border-radius: 10px;
+  
+}
+
+.form-fields{
+    text-align: left;
+}
