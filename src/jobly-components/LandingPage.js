@@ -1,6 +1,6 @@
 import React from "react";
 import "./LandingPage.css";
-import bgimage from "./welcomeBG.JPG";
+import bgimage from "./Images/welcomeBG.JPG";
 import { useNavigate } from "react-router-dom";
 const LandingPage = () => {
   const navigate = useNavigate();

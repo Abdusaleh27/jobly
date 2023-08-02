@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./Navigation.css";
-import navlogo from "./Jobly-nav-logo1.jpg";
+import navlogo1 from "./Images/jobly-nav-logo2.jpg";
 import UserContext from "./UserContext";
-import mainLogo from "./Jobly3.jpg";
+import mainLogo from "./Images/Jobly3.jpg";
 const Navigation = ({ selected, setSelected }) => {
-  const { currentUser, updateCurrentUser } = useContext(UserContext);
+  const { currentUser, updateCurrentUser,userData } = useContext(UserContext);
 
   const handleClick = () => {
     localStorage.removeItem("user");
@@ -36,12 +36,14 @@ const Navigation = ({ selected, setSelected }) => {
           >
             <div className="container-fluid">
               <Link className="nav-comp text-light navbar-brand" to="/">
-                <img
-                  src={navlogo}
+                
+                  <img
+                  className="rounded"
+                  src={navlogo1}
                   alt="logo"
                   style={{
-                    width: "35px",
-                    height: "50px",
+                    width: "100px",
+                    height: "45px",
                   }}
                 />
               </Link>
@@ -107,15 +109,15 @@ const Navigation = ({ selected, setSelected }) => {
                 <ul className="navbar-nav logout">
                   <li className="nav-item" onClick={handleClick}>
                     <Link
-                      className="nav-link text-dark logout"
+                      className="nav-link text-white logout"
                       to="/"
                       style={{
-                        border: "1px black solid",
+                        border: "1px white solid",
                         borderRadius: "7px",
-                        padding: "0 10px",
+                        padding: "5px 10px",
                       }}
                     >
-                      Logout {currentUser}
+                      Logout {userData.firstName !== "" ? userData.firstName : currentUser}
                     </Link>
                   </li>
                 </ul>

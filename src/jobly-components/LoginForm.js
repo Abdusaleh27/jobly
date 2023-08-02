@@ -44,7 +44,6 @@ function LoginForm({ login }) {
     if(userData) await JoblyApi.saveProfile(userData);
     let result = await JoblyApi.login(formData);
 
-    console.log("token is ", result);
     if (result) {
       updateCurrentUser(formData.username);
       history("/companies");
@@ -84,6 +83,7 @@ function LoginForm({ login }) {
                 aria-describedby="usernameHelp"
                 value={formData.username}
                 onChange={handleChange}
+                autoComplete="user-name"
               />
             </div>
 
@@ -98,6 +98,7 @@ function LoginForm({ login }) {
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
+                autoComplete="current-password"
               />
             </div>
             {valid ? (

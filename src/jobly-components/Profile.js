@@ -3,7 +3,7 @@ import JoblyApi from "./api";
 import UserContext from "./UserContext";
 
 function Profile() {
-  const { updateData, currentUser, userData } = useContext(UserContext);
+  const { updateData, currentUser, userData,updateCurrentUser } = useContext(UserContext);
 
   const [formData, setFormData] = useState({
     password: "",
@@ -17,7 +17,7 @@ function Profile() {
     evt.preventDefault();
     let result = await JoblyApi.updateProfile(formData);
     if (result[0] && result[1]) {
-      updateData({...JSON.parse(localStorage.getItem(userData))});
+      updateData({ ...JSON.parse(localStorage.getItem("userdata")) });
       setFormData((data) => ({ ...data, password: "" }));
     } else {
       setValid(result);
@@ -95,6 +95,7 @@ function Profile() {
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
+                autoComplete="current-password"
               />
             </div>
             {/* Input Error Handling */}

@@ -12,7 +12,7 @@ const Jobs = ({ allJobs = true, companyName }) => {
   const { updateSelected, updateData, userData } = useContext(UserContext);
   const INTIAL_APPS = userData ? userData.applications : [];
   const [applications, setApplications] = useState(INTIAL_APPS);
-
+  const [companyExists, setCompanyExists] = useState(true);
   useEffect(() => {
     search();
     setLoaded(true);
@@ -30,6 +30,9 @@ const Jobs = ({ allJobs = true, companyName }) => {
       comps = comps.filter((comp) => comp.companyHandle === companyName);
       if (comps !== undefined && comps.length > 0) {
         setName(comps[0].companyName);
+        setCompanyExists(true);
+      } else {
+        setCompanyExists(false);
       }
     }
     setJobs(() => [...comps]);
@@ -47,29 +50,38 @@ const Jobs = ({ allJobs = true, companyName }) => {
       <div className="row">
         <div className="col"></div>
         <div className="col-md-9 col-lg-8">
-          {allJobs ? (
-            <SearchCompanies search={search} searchTitle={"Jobs"} />
-          ) : (
-            <p className="company-name" style={{ paddingTop: "40px" }}>
-              {name}
-            </p>
-          )}
-
-          {loaded ? (
-            jobs.length > 0 ? (
-              jobs.map((job) => (
-                <Job
-                  job={job}
-                  key={job.id}
-                  setApplied={setApplied}
-                  applications={applications}
-                />
-              ))
+          <div className="row">
+            <div className="col"></div>
+            <div className="col-10 col-md-8 col-lg-12">
+              {allJobs ? (
+                <SearchCompanies search={search} searchTitle={"Jobs"} />
+              ) : (
+                <p className="company-name" style={{ paddingTop: "40px" }}>
+                  {name}
+                </p>
+              )}
+            </div>
+            <div className="col"></div>
+          </div>
+          {companyExists ? (
+            loaded ? (
+              jobs.length > 0 ? (
+                jobs.map((job) => (
+                  <Job
+                    job={job}
+                    key={job.id}
+                    setApplied={setApplied}
+                    applications={applications}
+                  />
+                ))
+              ) : (
+                <p className="text-danger">*No Job found</p>
+              )
             ) : (
-              <NotFound />
+              ""
             )
           ) : (
-            ""
+            <NotFound />
           )}
         </div>
         <div className="col"></div>

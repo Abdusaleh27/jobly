@@ -5,7 +5,6 @@ import LandingPage from "./LandingPage";
 import Companies from "./Companies";
 import Profile from "./Profile";
 import Jobs from "./Jobs";
-import mainLogo from "./Jobly3.jpg";
 import CompanyJobs from "./CompanyJobs";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
@@ -17,7 +16,7 @@ const MainPage = () => {
   const data = JSON.parse(localStorage.getItem("userdata"));
   const [currentUser, setCurrentUser] = useState(userName);
   const [userData, setUserData] = useState(data);
-  const updateData = (d) => setUserData(() => d);
+  const updateData = (d) => setUserData(() => ({...d}));
 
   const updateCurrentUser = (user) => setCurrentUser(() => user);
 

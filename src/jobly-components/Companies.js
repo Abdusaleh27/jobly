@@ -6,7 +6,7 @@ import UserContext from "./UserContext";
 const Companies = () => {
   const [loaded, setLoaded] = useState(false);
   const [companies, setCompanies] = useState([]);
-  const { updateSelected , updateData } = useContext(UserContext);
+  const { updateSelected, updateData } = useContext(UserContext);
 
   useEffect(() => {
     search();
@@ -14,8 +14,6 @@ const Companies = () => {
     updateSelected("/");
     updateData(JSON.parse(localStorage.getItem("userdata")));
   }, []);
-
-  
 
   const search = async (name) => {
     let comps = await JoblyApi.getCompanies(name);
@@ -28,11 +26,18 @@ const Companies = () => {
         <div className="col"></div>
         <div className="col-lg-9">
           <SearchCompanies search={search} searchTitle={"companies"} />
-          {loaded
-            ? companies.map((company) => (
+
+          {loaded ? (
+            companies.length > 0 ? (
+              companies.map((company) => (
                 <Company company={company} key={company.handle} />
               ))
-            : ""}
+            ) : (
+              <p className="text-danger">*No company found</p>
+            )
+          ) : (
+            ""
+          )}
         </div>
         <div className="col"></div>
       </div>

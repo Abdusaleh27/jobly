@@ -21,7 +21,7 @@ const Job = ({ job, setApplied, applications }) => {
       onMouseLeave={handleMouse}
     >
       <div>
-        <p className="job-title">{job.title}</p>
+        <p className="job-title text-center">{job.title}</p>
         <p className="job-description">
           <span>Company:</span> {job.companyName}
         </p>

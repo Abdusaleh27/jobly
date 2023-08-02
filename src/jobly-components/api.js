@@ -2167,10 +2167,10 @@ class JoblyApi {
     return [validFields, validUser];
   }
 
-  static async updateProfile(data){
+  static async updateProfile(data) {
     let validFields = true;
     let validPassword = true;
-    if(data.password !== mocks.user.password) validPassword = false;
+    if (data.password !== mocks.user.password) validPassword = false;
     let values = Object.values(data);
     for (let value of values) {
       if (value.trim() === "") {

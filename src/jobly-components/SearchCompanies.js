@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
-const SearchCompanies = ({ search,searchTitle }) => {
+const SearchCompanies = ({ search, searchTitle = "companyies" }) => {
   const [query, setQuery] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
     await search(query);
   };
   const handleChange = async (e) => {
-    let {value} = e.target;
+    let { value } = e.target;
     setQuery(value);
-    search(value);  
+    search(value);
   };
-  
+
   return (
     <form onSubmit={handleSubmit}>
       <div className="row my-3">

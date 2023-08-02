@@ -40,7 +40,6 @@ function SignupForm({ signup }) {
   async function handleSubmit(evt) {
     evt.preventDefault();
     let result = await JoblyApi.signup(formData);
-    console.log("result", result);
     if (typeof result === "string") {
       updateCurrentUser(formData.username);
       history("/companies");
@@ -77,6 +76,7 @@ function SignupForm({ signup }) {
                 name="username"
                 value={formData.username}
                 onChange={handleChange}
+                autoComplete="user-name"
               />
 
               {/* User name validation */}
@@ -100,6 +100,7 @@ function SignupForm({ signup }) {
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
+                autoComplete="current-password"
               />
             </div>
             <div className="col-12">
